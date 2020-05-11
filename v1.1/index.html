@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Mark's Tanks</title>
+<script src="matter.min.js"></script>
+<script src="controls.js"></script>
+<script src="limits.js"></script>
+<script src="init.js"></script>
+<script src="npc.js"></script>
+<script src="world.js"></script>
+<script src="tank.js"></script>
+<style>
+    body {
+  margin: 20px auto;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h1 style="text-align:center;margin:0;">
+<span style="color:red;font-size:2em;">M</span>
+<span style="color:lightblue;">a</span>
+<span style="color:yellow;font-size:1em;">r</span>
+<span style="color:#000099;">k</span>
+<span style="color:#72f2ce;font-size:2em;">'</span>
+<span style="color:brown;">s</span>
+<span style="color:red;"></span>
+<span style="color:red;font-size:2em;">T</span>
+<span style="color:green;">a</span>
+<span style="color:red;font-size:1em;">n</span>
+<span style="color:yellow;">k</span>
+<span style="color:red;font-size:1.5em;">s</span>
+</h1>
+
+<script>
+
+	//Game Area
+	document.write('<div id="gameBox" style="border:5px solid red;width:'+worldWidth+'px;height:'+worldHeight+'px;margin: 10px auto;position:relative;"></div>');
+	
+	//Box for messages
+	document.write('<div id="GameOver" style="color:white;font-size:30px;display:block;position:absolute;top:150px;width:'+worldWidth+'px;text-align:center;left:0px;">Lets Play!</div>');
+
+	init();
+	drawWorld();
+
+	//Add tanks
+    tank1=drawTank(200,worldHeight-250);
+	tank2=drawTank(worldWidth-200,worldHeight-150);
+	
+	setTimeout(function(){ hideGameOver(); }, 1000);
+	setInterval(function(){ checkCars(); }, 100);
+
+</script>
+
+</body>
+</html>

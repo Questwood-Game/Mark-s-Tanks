@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Mark's Tanks</title>
+<script src="matter.min.js"></script>
+<script src="init.js"></script>
+<script src="world.js"></script>
+<script src="tank.js"></script>
+<style>
+    body {
+  margin: 20px auto;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h1 style="text-align:center;margin:0;">
+<span style="color:red;font-size:2em;">M</span>
+<span style="color:lightblue;">a</span>
+<span style="color:yellow;font-size:1em;">r</span>
+<span style="color:#000099;">k</span>
+<span style="color:#72f2ce;font-size:2em;">'</span>
+<span style="color:brown;">s</span>
+<span style="color:red;"></span>
+<span style="color:red;font-size:2em;">T</span>
+<span style="color:green;">a</span>
+<span style="color:red;font-size:1em;">n</span>
+<span style="color:yellow;">k</span>
+<span style="color:red;font-size:1.5em;">s</span>
+</h1>
+
+
+<div id="gameBox" style="border:5px solid red;width:1200px;height:600px;
+margin: 10px auto;
+position:relative;
+">
+</div>
+
+<script>
+    init();
+	drawWorld();
+    car1=drawTank(200,100,sizes[0][0],sizes[0][1],sizes[0][2]);
+	car2=drawTank(1000,100,sizes[1][0],sizes[1][1],sizes[1][2]);
+	
+	car3=drawTank(550,100,sizes[2][0],sizes[2][1],sizes[2][2]);
+	car4=drawTank(650,100,sizes[3][0],sizes[3][1],sizes[3][2]);
+	
+	
+	
+	Matter.Body.setDensity(car2, 10000000000);
+	
+	
+	 setInterval(function(){ checkCars(); }, 100);
+	 
+	setTimeout(function(){ hideGameOver(); }, 1000);
+	
+		
+</script>
+<div id="GameOver" style="color:white;font-size:30px;display:block;position:absolute;top:300px;width:400px;text-align:center;left:600px;">Lets Play!</div>
+</body>
+</html>
