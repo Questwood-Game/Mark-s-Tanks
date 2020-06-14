@@ -1,4 +1,4 @@
-function drawTank(x,y,a,b,c)
+function drawTank(x,y,texture_file)
 {
 	//Zoom
 	var k=zoom;
@@ -6,22 +6,46 @@ function drawTank(x,y,a,b,c)
 	
 	//Tank body 
 	var body = Bodies.rectangle(0*k+x, -10*k+y, 200*k, 40*k,{
-		isStatic: false, density: density, friction: 1000.0
+		isStatic: false, density: density, friction: 1000.0,
+		
+		render: {
+                    sprite: {
+                        texture: texture_file,
+                        xScale: 0.5,
+                        yScale: 0.5,
+						marginY:-10
+                    }
+                }
+		
 	});
     	
 	//Connon parts
 	var cannon1 = Bodies.circle(0*k+x, -80*k+y, 5*k,{
-		isStatic: false, density: density*10, friction: 1.0
+		isStatic: false, density: density*10, friction: 1.0,render: {
+visible: false,
+lineWidth: 0,
+strokeStyle: 'rgba(0,0,0,0)'
+}
 	});
+	cannon1.render.visible = false;
 	
 	var cannon2 = Bodies.rectangle(100*k+x, -80*k+y, 100*k, 10*k,{
-		isStatic: false, density: density/10, friction: 1.0
+		isStatic: false, density: density/10, friction: 1.0,
+		render:{visible: false}
 	});
 	
 	//Cannon
 	var cannon = Body.create({
 		parts: [cannon1,cannon2],
-		isStatic: false
+		isStatic: false,
+		
+				render: {
+                    sprite: {
+                        texture: 'cannon.png',
+                        xScale: 0.5,
+                        yScale: 0.5
+                    }
+                }
     });
 	
 	

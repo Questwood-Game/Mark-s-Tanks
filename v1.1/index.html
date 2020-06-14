@@ -47,8 +47,8 @@
 	drawWorld();
 
 	//Add tanks
-    tank1=drawTank(200,worldHeight-250);
-	tank2=drawTank(worldWidth-200,worldHeight-150);
+    tank1=drawTank(200,worldHeight-250,'tank1.png');
+	tank2=drawTank(worldWidth-200,worldHeight-150,'tank2.png');
 	
 	setTimeout(function(){ hideGameOver(); }, 1000);
 	setInterval(function(){ checkCars(); }, 100);

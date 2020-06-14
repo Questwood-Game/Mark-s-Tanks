@@ -1,32 +1,64 @@
+//var controlKeys={'65':false,'68':false};
+	var map={};
+
 function checkKey(e) {
 
-	//alert(e.keyCode);
+//	alert("LOL");
 
     e = e || window.event;
+	
 
+	map[e.keyCode]=e.type=='keydown';
+	//showGameOver(JSON.stringify(map));
+	//alert(JSON.stringify(map));
+	//var i,l=map.length;
+	//for(i=0;i<l;i++)
+		/*
+	for(var key in map)
+	{
+		//alert(key+"***"+map[key]);
+	//	alert(key);
+		for(var k in controlKeys)
+		{
+			if(key==k)
+			{
+				controlKeys[key]=map[key];
+				//alert(JSON.stringify(controlKeys));
+				
+			}
+		}*/
+		doKey();//parseInt(key));
+	//}
+	
+	
+}
+
+function doKey(key)
+{
 	let speed=10*zoom;
 
 	//Cannon
-	
+	//alert(JSON.stringify(map));
 	//Tank 2
+	//alert(key);	
 
-    if (e.keyCode == '38') {
+    if (map['38']) {
         // rotate counter clockwise
 		Body.rotate(tank2[1], -Math.PI/40);
 		
     }
-    else if (e.keyCode == '40') {
+    else if (map['40']) {
         // rotate clockwise
 		Body.rotate(tank2[1], Math.PI/40);
     }
 	
 	//Tank 1
 	
-	if (e.keyCode == 87) {
+	if (map['87']) {
         // rotate counter clockwise
 		Body.rotate(tank1[1], -Math.PI/40);
     }
-    else if (e.keyCode == 83) {
+    else if (map['83']) {
         // rotate clockwise
 		Body.rotate(tank1[1], Math.PI/40);
     }
@@ -34,35 +66,35 @@ function checkKey(e) {
 	
 	
 	//Body
-	
-	if (e.keyCode == 65) {
+	//Tank 1
+	if (map['65']) {
        // left arrow
 	    applyXforce(tank1[0],-speed);
 
    }
-    else if (e.keyCode == 68) {
+    else if (map['68']) {
        // right arrow
 	    applyXforce(tank1[0],speed);
     }
 	
-	
-	if (e.keyCode == '37') {
+	//Tank 2
+	if (map['37']) {
        // left arrow
 	    applyXforce(tank2[0],-speed);
    }
-    else if (e.keyCode == '39') {
+    else if (map['39']) {
        // right arrow
 	   applyXforce(tank2[0],speed);
     }
 	
 	
 	//Fire tank 1
-	if (e.keyCode == 69) {
+	if (map['69']) {
        fire(tank1[0],tank1[1])
 	}
 	
 	//Fire tank 2
-	if (e.keyCode == 96) {
+	if (map['96']) {
        fire(tank2[0],tank2[1])
 	}
 
@@ -131,7 +163,7 @@ function fire(tank,cannon)
 	var x=pos[0];//+dx/10;
 	var y=pos[1];//+dy/10;
 	
-	showGameOver(dx+","+dy);
+	//showGameOver(dx+","+dy);
 	
 	var bomb = Bodies.circle(x,y,20*zoom,{
 		isStatic: false, density: 20*zoom, friction: 0.0,restitution: 1
@@ -147,7 +179,7 @@ function fire(tank,cannon)
 	
 	
 	Body.applyForce( bomb, {x: bomb.position.x, y: bomb.position.y}, {x: dx, y: dy});
-	Body.applyForce( tank, {x: bomb.position.x, y: bomb.position.y}, {x: -dx*0.1, y: -dy*0.1});
+	Body.applyForce( tank, {x: bomb.position.x, y: bomb.position.y}, {x: -dx*0.3, y: -dy*0.3});
 }
 
 function applyXforce(b,speed)

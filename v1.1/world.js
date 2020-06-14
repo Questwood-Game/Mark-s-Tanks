@@ -1,9 +1,10 @@
 //here we will draw the world
 
 
+//document.onkeydown = checkKey;
 document.onkeydown = checkKey;
-
-
+document.onkeyup = checkKey;
+//onkeydown = onkeyup =
 
 
 function drawWorld()
@@ -27,7 +28,7 @@ function showGameOver(txt)
 	var obj=document.getElementById("GameOver");
 	obj.innerHTML=txt;
 	obj.style.display="block";
-	setTimeout(function(){ hideGameOver(); }, 1000);
+	setTimeout(function(){ hideGameOver(); }, 3000);
 }
 
 function hideGameOver()
