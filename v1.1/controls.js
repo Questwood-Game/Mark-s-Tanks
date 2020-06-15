@@ -1,56 +1,18 @@
-//var controlKeys={'65':false,'68':false};
-	var map={};
+var map={};
 
 function checkKey(e) {
 
-//	alert("LOL");
-
     e = e || window.event;
-	
-
-	map[e.keyCode]=e.type=='keydown';
-	//showGameOver(JSON.stringify(map));
-	//alert(JSON.stringify(map));
-	//var i,l=map.length;
-	//for(i=0;i<l;i++)
-		/*
-	for(var key in map)
-	{
-		//alert(key+"***"+map[key]);
-	//	alert(key);
-		for(var k in controlKeys)
-		{
-			if(key==k)
-			{
-				controlKeys[key]=map[key];
-				//alert(JSON.stringify(controlKeys));
-				
-			}
-		}*/
-		doKey();//parseInt(key));
-	//}
-	
-	
+		map[e.keyCode]=e.type=='keydown';
+	doKey();
 }
 
 function doKey(key)
 {
-	let speed=10*zoom;
+	let speed=20*zoom;
 
 	//Cannon
-	//alert(JSON.stringify(map));
-	//Tank 2
-	//alert(key);	
 
-    if (map['38']) {
-        // rotate counter clockwise
-		Body.rotate(tank2[1], -Math.PI/40);
-		
-    }
-    else if (map['40']) {
-        // rotate clockwise
-		Body.rotate(tank2[1], Math.PI/40);
-    }
 	
 	//Tank 1
 	
@@ -63,7 +25,39 @@ function doKey(key)
 		Body.rotate(tank1[1], Math.PI/40);
     }
 	
+	//Tank 2
+
+    if (map['38']) {
+        // rotate counter clockwise
+		Body.rotate(tank2[1], -Math.PI/40);
+		
+    }
+    else if (map['40']) {
+        // rotate clockwise
+		Body.rotate(tank2[1], Math.PI/40);
+    }
 	
+		
+	//Tank 3
+
+
+    if (map['79']) {
+        // rotate counter clockwise
+		Body.rotate(tank3[1], -Math.PI/40);
+		
+    }
+    else if (map['76']) {
+        // rotate clockwise
+		Body.rotate(tank3[1], Math.PI/40);
+    }
+	
+	//to fly
+	//if (map['32']) {
+       // left arrow
+	  //  applyYforce(tank1[0],-speed*3);
+		//applyYforce(tank2[0],-speed*3);
+		//applyYforce(tank3[0],-speed*3);
+//	}
 	
 	//Body
 	//Tank 1
@@ -87,6 +81,16 @@ function doKey(key)
 	   applyXforce(tank2[0],speed);
     }
 	
+	//Tank 3
+	if (map['75']) {
+       // left arrow
+	    applyXforce(tank3[0],-speed);
+   }
+    else if (map['59']) {
+       // right arrow
+	   applyXforce(tank3[0],speed);
+    }
+	
 	
 	//Fire tank 1
 	if (map['69']) {
@@ -96,6 +100,10 @@ function doKey(key)
 	//Fire tank 2
 	if (map['96']) {
        fire(tank2[0],tank2[1])
+	}
+//Fire tank 3
+	if (map['80']) {
+       fire(tank3[0],tank3[1])
 	}
 
 }
@@ -185,4 +193,9 @@ function fire(tank,cannon)
 function applyXforce(b,speed)
 {
 	Body.applyForce( b, {x: b.position.x, y: b.position.y}, {x: speed, y: 0});
+}
+
+function applyYforce(b,speed)
+{
+	Body.applyForce( b, {x: b.position.x, y: b.position.y}, {x: 0, y: speed});
 }

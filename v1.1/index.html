@@ -18,8 +18,37 @@
 }
 </style>
 </head>
-<body>
+<body style="background-color:#18181d;">
+<div style="position:relative;">
 
+<script>
+
+	//Game Area
+	document.write('<div id="gameBox" style="border:0px solid grey;width:'+worldWidth+'px;height:'+worldHeight+'px;margin: 10px auto;position:relative;"></div>');
+	
+	//Box for messages
+	document.write('<div id="GameOver" style="color:white;font-size:30px;display:block;position:absolute;top:150px;width:'+worldWidth+'px;text-align:center;left:0px;">Lets Play!</div>');
+
+	init();
+	drawWorld();
+
+
+	
+	//Add tanks
+    tank1=drawTank(tankPositions[0][0],tankPositions[0][1],'tank1.png');
+	tank2=drawTank(tankPositions[1][0],tankPositions[1][1],'tank2.png');
+	tank3=drawTank(tankPositions[2][0],tankPositions[2][1],'tank3.png');
+	
+	
+	setTimeout(function(){ hideGameOver(); }, 1000);
+	setInterval(function(){ checkCars(); }, 100);
+	
+	setInterval(function(){ worldTick(); }, 10);
+
+</script>
+
+
+<div style="position:absolute;top:0;margin:0 auto;width:100%;">
 <h1 style="text-align:center;margin:0;">
 <span style="color:red;font-size:2em;">M</span>
 <span style="color:lightblue;">a</span>
@@ -34,26 +63,7 @@
 <span style="color:yellow;">k</span>
 <span style="color:red;font-size:1.5em;">s</span>
 </h1>
-
-<script>
-
-	//Game Area
-	document.write('<div id="gameBox" style="border:5px solid red;width:'+worldWidth+'px;height:'+worldHeight+'px;margin: 10px auto;position:relative;"></div>');
-	
-	//Box for messages
-	document.write('<div id="GameOver" style="color:white;font-size:30px;display:block;position:absolute;top:150px;width:'+worldWidth+'px;text-align:center;left:0px;">Lets Play!</div>');
-
-	init();
-	drawWorld();
-
-	//Add tanks
-    tank1=drawTank(200,worldHeight-250,'tank1.png');
-	tank2=drawTank(worldWidth-200,worldHeight-150,'tank2.png');
-	
-	setTimeout(function(){ hideGameOver(); }, 1000);
-	setInterval(function(){ checkCars(); }, 100);
-
-</script>
-
+</div>
+</div>
 </body>
 </html>
