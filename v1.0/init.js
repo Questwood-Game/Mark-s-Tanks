@@ -14,7 +14,7 @@ let car2 = null;
 let car3 = null;
 let car4 = null;
 
-let sizes=[[330,10,30],[130,10,50],[130,10,30],[130,10,30]];
+let sizes=[[20,0,30],[20,0,30],[130,10,30],[130,10,30]];
 
 let worldWidth=1200; 
 let worldHeight=600;

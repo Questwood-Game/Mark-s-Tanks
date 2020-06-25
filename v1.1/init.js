@@ -19,10 +19,10 @@ let tank1_lives=5;
 let tank2_lives=5;
 let tank3_lives=5;
 
-let worldWidth=Math.max(document.documentElement.clientWidth, 800)-10;//-50; 
-let worldHeight=Math.max(document.documentElement.clientHeight, 600)-100;//-200;
+let worldWidth=0; 
+let worldHeight=0;
 
-let tankPositions=[[200,100],[worldWidth-200,100],[(worldWidth-400)/2+200,100]];
+let tankPositions=0;
 
 let worldFloor=null;
 let ClockSign=-1;
@@ -30,6 +30,11 @@ let ClockSign=-1;
 
 function init()
 {
+	worldWidth=Math.max(document.documentElement.clientWidth, 800)-10;//-50; 
+worldHeight=Math.max(document.documentElement.clientHeight, 600)-100;//-200;
+
+ tankPositions=[[200,100],[worldWidth-200,100],[(worldWidth-400)/2+200,100]];
+	
 	engine = Matter.Engine.create();
 
 	render = Matter.Render.create({

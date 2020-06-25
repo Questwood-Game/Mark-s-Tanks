@@ -20,12 +20,12 @@ function drawWorld()
 	});
 	
 	
-	let square2 = Matter.Bodies.rectangle(tankPositions[0][0], tankPositions[0][1]+20,200, 20, {
+	let square2 = Matter.Bodies.rectangle(tankPositions[0][0]+20, tankPositions[0][1]+20,200, 20, {
 		density: 1000, friction: 0, restitution: 1.0,
 		isStatic:true
 	});
 	
-	let square3 = Matter.Bodies.rectangle(tankPositions[1][0], tankPositions[1][1]+20,200, 20, {
+	let square3 = Matter.Bodies.rectangle(tankPositions[1][0]-20, tankPositions[1][1]+20,200, 20, {
 		density: 1000, friction: 0, restitution: 1.0,
 		isStatic:true
 	});
@@ -91,7 +91,7 @@ function drawWorld()
 
 	worldFloor = Body.create({
 		parts: [p1,p2,p3],
-		isStatic: false,
+		isStatic: true,
 		density: 1000,
 				render: {
                     sprite: {
@@ -101,20 +101,20 @@ function drawWorld()
                     }
                 }
     });
-	
-	Matter.World.add(engine.world, [square1,square2,square3,square4,square6,square7,square8,square9,worldFloor]);
+	//square1,
+	Matter.World.add(engine.world, [square2,square3,square4,square6,square7,square8,square9,worldFloor]);
 	
 }
 
 function worldTick()
 {
-	Body.rotate(worldFloor, Math.PI/18000*ClockSign);
+	Body.rotate(worldFloor, Math.PI/1800*ClockSign);
 }
 
 function showGameOver(txt)
 {
 	
-	var obj=document.getElementById("GameOver");
+	var obj=document.getElementById("messagebox");
 	obj.innerHTML=txt;
 	obj.style.display="block";
 	setTimeout(function(){ hideGameOver(); }, 3000);
@@ -122,6 +122,6 @@ function showGameOver(txt)
 
 function hideGameOver()
 {
-	var obj=document.getElementById("GameOver");
-	obj.style.display="none";
+	var obj2=document.getElementById("messagebox");
+	obj2.style.display="none";
 }

@@ -186,8 +186,8 @@ function fire(tank,cannon)
 	
 	
 	
-	Body.applyForce( bomb, {x: bomb.position.x, y: bomb.position.y}, {x: dx, y: dy});
-	Body.applyForce( tank, {x: bomb.position.x, y: bomb.position.y}, {x: -dx*0.3, y: -dy*0.3});
+	Body.applyForce( bomb, {x: bomb.position.x, y: bomb.position.y}, {x: dx*1.5, y: dy*1.5});
+	Body.applyForce( tank, {x: bomb.position.x, y: bomb.position.y}, {x: -dx*0.1, y: -dy*0.1});
 }
 
 function applyXforce(b,speed)

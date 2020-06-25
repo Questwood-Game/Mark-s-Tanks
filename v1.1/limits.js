@@ -1,4 +1,4 @@
-function checkCars()
+ function checkCars()
 {
 	//tank 1
 	if(tank1_lives>=0 && tank1[0].position.y>worldHeight)
@@ -34,7 +34,7 @@ function checkCars()
 		
 		if(tank2_lives<1)
 		{
-			showGameOver("Game Over player2");
+			showGameOver("Game Over <MAYA PROFI");
 		}
 		else
 		{
