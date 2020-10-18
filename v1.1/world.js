@@ -120,7 +120,7 @@ function showGameOver(txt)
 	setTimeout(function(){ hideGameOver(); }, 3000);
 }
 
-function hideGameOver()
+function hideGameOver()	
 {
 	var obj2=document.getElementById("messagebox");
 	obj2.style.display="none";

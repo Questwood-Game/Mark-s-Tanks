@@ -11,11 +11,11 @@
 		
 		if(tank1_lives<1)
 		{
-			showGameOver("Game Over SATURNIANIN");
+			showGameOver("Game Over ALYONA");
 		}
 		else
 		{
-			showGameOver("Try again SATURNIANIN. You have "+tank1_lives+" lives.");
+			showGameOver("Try again ALYONA. You have "+tank1_lives+" lives.");
 	    
 			tank1=drawTank(tankPositions[0][0],tankPositions[0][1],'tank1.png');
 		}
@@ -34,12 +34,12 @@
 		
 		if(tank2_lives<1)
 		{
-			showGameOver("Game Over <MAYA PROFI");
+			showGameOver("Game Over <MAYA ");
 		}
 		else
 		{
 			//show message
-			showGameOver("Try again player2. You have "+tank2_lives+" lives.");
+			showGameOver("Try again MAYA. You have "+tank2_lives+" lives.");
 			//spawn the tank
 			tank2=drawTank(tankPositions[1][0],tankPositions[1][1],'tank2.png');
 		}
@@ -60,18 +60,17 @@
 		
 		if(tank3_lives<1)
 		{
-			showGameOver("Game Over MARTIAN");
+			showGameOver("Game Over MARK");
 		}
 		else
 		{
 			//show message
-			showGameOver("Try again MARTIAN. You have "+tank3_lives+" lives.");
+			showGameOver("Try again MARK. You have "+tank3_lives+" lives.");
 			//spawn the tank
 			tank3=drawTank(tankPositions[2][0],tankPositions[2][1],'tank3.png');
 		}
 	}
-	//controlRobot(car3);
-	//controlRobot(car4);
+	
 
 }
 
